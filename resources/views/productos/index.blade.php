@@ -3,10 +3,10 @@
 @section('title', 'Listado de productos')
 
 @section('content')
-    <h1 class="h2 mb-3">Productos</h1>
+    <h1 class="h3 mb-3">Listado de productos</h1>
 
     <div class="table-responsive">
-        <table class="table table-dark table-striped align-middle">
+        <table class="table table-light table-striped align-middle">
             <thead>
                 <tr>
                     <th scope="col">Código</th>
@@ -42,5 +42,5 @@
         </table>
     </div>
 
-    {{ $productos->links() }}
+    {{ $productos->links('pagination::bootstrap-5') }}
 @endsection

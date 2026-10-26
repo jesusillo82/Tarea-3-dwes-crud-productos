@@ -40,12 +40,14 @@
     </div>
 </div>
 
-<div class="mb-3">
-    <label class="form-label fw-bold" for="descripcion">Descripción</label>
-    <textarea class="form-control" name="descripcion" id="descripcion" rows="5">{{ old('descripcion', $producto?->descripcion) }}</textarea>
-    @error('descripcion')
-        <div class="text-danger">{{ $message }}</div>
-    @enderror
+<div class="card mb-3">
+    <div class="card-body">
+        <label class="form-label fw-bold" for="descripcion">Descripción</label>
+        <textarea class="form-control" name="descripcion" id="descripcion" rows="5">{{ old('descripcion', $producto?->descripcion) }}</textarea>
+        @error('descripcion')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
+    </div>
 </div>
 
 <button class="btn btn-primary" type="submit">{{ $submitLabel }}</button>

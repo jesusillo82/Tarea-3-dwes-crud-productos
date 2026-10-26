@@ -22,11 +22,25 @@
                 <dd class="col-sm-9">{{ number_format((float) $producto->pvp, 2, ',', '.') }} €</dd>
 
                 <dt class="col-sm-3">Descripción</dt>
-                <dd class="col-sm-9">{{ $producto->descripcion ?: 'Sin descripción' }}</dd>
+                <dd class="col-sm-9">
+                    @if ($producto->descripcion)
+                        @foreach (preg_split('/\r\n|\r|\n/', $producto->descripcion) as $linea)
+                            @php($partes = explode(':', $linea, 2))
+                            <span class="me-3">
+                                @if (count($partes) === 2)
+                                    <strong>{{ trim($partes[0]) }}:</strong> {{ trim($partes[1]) }}
+                                @else
+                                    {{ $linea }}
+                                @endif
+                            </span>
+                        @endforeach
+                    @else
+                        Sin descripción
+                    @endif
+                </dd>
             </dl>
         </div>
         <div class="card-footer d-flex gap-2">
-            <a class="btn btn-warning" href="{{ route('productos.edit', $producto) }}">Editar</a>
             <a class="btn btn-light" href="{{ route('productos.index') }}">Volver al listado</a>
         </div>
     </article>
