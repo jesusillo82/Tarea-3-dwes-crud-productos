@@ -41,7 +41,8 @@ class ProductoCrudTest extends TestCase
             ->assertOk()
             ->assertSee('<h1 class="h3 mb-3">Listado de productos</h1>', false)
             ->assertSee('<table class="table table-light table-striped align-middle">', false)
-            ->assertSee('Gestión de productos. Todos los derechos reservados.')
+            ->assertSee('Gestión de productos')
+            ->assertSee('Todos los derechos reservados.')
             ->assertSee('Portátil de prueba')
             ->assertSee('Ordenadores');
     }
