@@ -14,8 +14,11 @@ Aplicación Laravel 12 para listar, consultar, crear, editar y eliminar producto
 2. Copia `.env.example` a `.env`.
 3. Comprueba en `.env` los datos de conexión `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`.
 4. Genera la clave de la aplicación: `php artisan key:generate`.
-5. Inicia el servidor: `php artisan serve`.
-6. Abre la URL que indique Artisan, normalmente `http://127.0.0.1:8000`.
+5. Inicia el servidor: `php artisan serve`. Es un pequeño servidor que tiene Laravel para poder ejecutarlo sin Laragon Apache. Hay que ejecutarlo en la carpeta del proyecto
+6. Abre la URL que indique Artisan, normalmente `http://127.0.0.1:8000`. http://localhost:8000/productos 
+
+Si alojamos en Laragon el proyecto este debe alojarse en la 
+carpeta laragon/www y poner en el navegador 
 
 La aplicación reutiliza el esquema de la tarea original: `productos` debe contener `id`, `nombre`, `nombre_corto`, `descripcion`, `pvp` y `familia`; `familias` debe contener `cod` y `nombre`. No ejecutes migraciones para esas tablas en una base que ya las tenga.
 
