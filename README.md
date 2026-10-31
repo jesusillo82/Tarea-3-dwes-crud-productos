@@ -1,4 +1,6 @@
-# CRUD de productos DWES03 con Laravel
+# CRUD de productos DWES03 con Laravel. Modificacion de la Tarea 3 de la 
+Asignatura Desarrollo web en entorno Servidor DAW a la que incormporamos 
+framework Laravel
 
 Aplicación Laravel 12 para listar, consultar, crear, editar y eliminar productos de la base de datos `proyecto`.
 
