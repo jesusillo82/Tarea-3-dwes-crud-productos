@@ -30,6 +30,10 @@ La aplicación reutiliza el esquema de la tarea original: `productos` debe conte
 - `routes/web.php`: rutas web con protección CSRF.
 - `tests/Feature`: pruebas funcionales del CRUD.
 
+## Documentación del código
+
+Consulta la [guía de funcionalidad del proyecto](docs/funcionalidad.md) para ver el propósito de los archivos, las rutas y vistas, los métodos y variables principales, el esquema de datos y la configuración.
+
 ## Pruebas
 
 Ejecuta `php artisan test`. Las pruebas crean un esquema SQLite temporal y no requieren conectarse a MySQL.

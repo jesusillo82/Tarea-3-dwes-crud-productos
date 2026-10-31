@@ -7,9 +7,7 @@ use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
+    /** Verifica que la ruta raíz redirige al listado del catálogo. */
     public function test_the_homepage_redirects_to_the_product_list(): void
     {
         $this->get('/')

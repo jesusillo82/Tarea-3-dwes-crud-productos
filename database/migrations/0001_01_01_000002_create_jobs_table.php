@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    /** Crea las tablas de trabajos, lotes y trabajos fallidos de la cola. */
     public function up(): void
     {
         Schema::create('jobs', function (Blueprint $table) {
@@ -45,9 +43,7 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    /** Elimina las tablas creadas por esta migración. */
     public function down(): void
     {
         Schema::dropIfExists('jobs');

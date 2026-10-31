@@ -10,9 +10,7 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
+    /** Inserta un usuario fijo de ejemplo mediante UserFactory. */
     public function run(): void
     {
         // User::factory(10)->create();

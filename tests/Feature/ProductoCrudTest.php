@@ -9,6 +9,7 @@ use Tests\TestCase;
 
 class ProductoCrudTest extends TestCase
 {
+    /** Crea el esquema mínimo y los datos de familia que necesita cada prueba. */
     protected function setUp(): void
     {
         parent::setUp();
@@ -32,6 +33,7 @@ class ProductoCrudTest extends TestCase
         ]);
     }
 
+    /** Comprueba que el listado presenta los productos y el nombre de la familia. */
     public function test_product_list_is_displayed(): void
     {
         $this->createProduct();
@@ -47,6 +49,7 @@ class ProductoCrudTest extends TestCase
             ->assertSee('Ordenadores');
     }
 
+    /** Comprueba el formato de las líneas descriptivas con etiqueta y valor. */
     public function test_product_description_displays_characteristic_names_in_bold(): void
     {
         DB::table('productos')->insert([
@@ -64,6 +67,7 @@ class ProductoCrudTest extends TestCase
             ->assertSeeHtml('<strong>Núcleo de Procesador:</strong> Dual-core');
     }
 
+    /** Comprueba que la edición contiene una descripción editable sin vista previa. */
     public function test_edit_product_shows_description_in_styled_editable_field_without_preview(): void
     {
         DB::table('productos')->insert([
@@ -86,6 +90,7 @@ class ProductoCrudTest extends TestCase
             ->assertDontSee('Vista previa');
     }
 
+    /** Comprueba que la cabecera oculta la acción de alta en el detalle. */
     public function test_create_product_button_is_hidden_on_product_detail(): void
     {
         $this->createProduct();
@@ -97,6 +102,7 @@ class ProductoCrudTest extends TestCase
             ->assertSee('Volver al listado');
     }
 
+    /** Comprueba que el formulario de alta no ofrece un botón redundante. */
     public function test_create_product_button_is_hidden_on_create_page(): void
     {
         $this->get(route('productos.create'))
@@ -104,6 +110,7 @@ class ProductoCrudTest extends TestCase
             ->assertDontSee('btn btn-light text-primary fw-semibold px-3', false);
     }
 
+    /** Comprueba el ciclo completo de creación, actualización y eliminación. */
     public function test_product_can_be_created_updated_and_deleted(): void
     {
         $this->post(route('productos.store'), [
@@ -141,6 +148,7 @@ class ProductoCrudTest extends TestCase
         $this->assertDatabaseMissing('productos', ['id' => 1]);
     }
 
+    /** Comprueba que los valores inválidos se rechazan y no se guardan. */
     public function test_invalid_product_data_is_rejected(): void
     {
         $this->from(route('productos.create'))
@@ -157,6 +165,7 @@ class ProductoCrudTest extends TestCase
         $this->assertDatabaseCount('productos', 0);
     }
 
+    /** Inserta un producto de ejemplo directamente en la base de pruebas. */
     private function createProduct(): void
     {
         DB::table('productos')->insert([
